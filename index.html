@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f6fa">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="TG-K">
+  <meta name="description" content="TG-K — экспериментальный Telegram Web клиент для iPhone.">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/icon.svg">
+  <link rel="stylesheet" href="./styles.css">
+  <title>TG-K</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">K</span><div><strong>TG-K</strong><small>Ваше пространство</small></div></div>
+      <button class="icon-button" id="settingsButton" aria-label="Настройки">⚙</button>
+    </header>
+    <main id="mainView">
+      <section class="screen active" id="chatsScreen">
+        <div class="screen-heading"><div><p class="eyebrow">ПОНЕДЕЛЬНИК, 6 НОЯБРЯ</p><h1>Сообщения</h1></div><button class="compose-button" id="composeButton" aria-label="Новое сообщение">✎</button></div>
+        <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Поиск сообщений" autocomplete="off"><kbd>⌘ K</kbd></label>
+        <nav class="folder-tabs" aria-label="Папки">
+          <button class="folder active" data-folder="all">Все</button><button class="folder" data-folder="personal">Личные</button><button class="folder" data-folder="work">Работа</button><button class="folder" data-folder="unread">Непрочитанные</button>
+        </nav>
+        <div class="chat-list" id="chatList" aria-live="polite"></div>
+      </section>
+      <section class="screen" id="chatScreen">
+        <div class="chat-header"><button class="back-button" id="backButton">‹</button><div class="avatar avatar-blue" id="chatAvatar">A</div><div class="chat-title"><strong id="chatName">Диалог</strong><small id="chatStatus">TG-K preview</small></div><button class="icon-button" id="chatMore">···</button></div>
+        <div class="demo-notice">Это локальный предпросмотр. Сообщения ниже демонстрационные — Telegram пока не подключён.</div>
+        <div class="messages" id="messages"></div>
+        <form class="message-composer" id="messageForm"><button type="button" class="attach-button" id="attachButton">＋</button><input id="messageInput" placeholder="Сообщение" autocomplete="off"><button class="send-button" type="submit">↑</button></form>
+      </section>
+      <section class="screen" id="toolsScreen">
+        <div class="screen-heading"><div><p class="eyebrow">ВАШИ ИНСТРУМЕНТЫ</p><h1>Пространство</h1></div></div>
+        <div class="tool-grid">
+          <button class="tool-card" data-tool="notes"><span class="tool-icon lilac">✎</span><strong>Секретные заметки</strong><small>Локально на устройстве</small></button>
+          <button class="tool-card" data-tool="filters"><span class="tool-icon mint">⌁</span><strong>Фильтры сообщений</strong><small>Правила и категории</small></button>
+          <button class="tool-card" data-tool="summary"><span class="tool-icon peach">✧</span><strong>AI-сводка</strong><small>Подготовка к AI-провайдерам</small></button>
+          <button class="tool-card" data-tool="translate"><span class="tool-icon sky">文</span><strong>Перевод</strong><small>Место для интеграции</small></button>
+          <button class="tool-card" data-tool="voice"><span class="tool-icon rose">♫</span><strong>Голос в текст</strong><small>Проверка поддержки браузера</small></button>
+          <button class="tool-card" data-tool="downloads"><span class="tool-icon sand">↓</span><strong>Загрузки</strong><small>Менеджер файлов — далее</small></button>
+        </div>
+        <div class="privacy-card"><div class="privacy-icon">◈</div><div><strong>Панель приватности</strong><p>Контроль локальных данных и честные статусы защиты.</p></div><button id="privacyButton">›</button></div>
+      </section>
+      <section class="screen" id="settingsScreen">
+        <div class="screen-heading"><div><p class="eyebrow">TG-K</p><h1>Настройки</h1></div><button class="text-button" id="closeSettings">Готово</button></div>
+        <div class="settings-card">
+          <div class="setting-row"><div><strong>Невидимка</strong><small>Локальный режим приватности</small></div><span class="status-pill">Ограничен</span></div>
+          <p class="setting-note">Клиент не может гарантировать скрытие статуса «онлайн», прочтения или активности от серверов Telegram. Здесь пока доступны только локальные настройки интерфейса.</p>
+          <div class="setting-row"><div><strong>Локальные заметки</strong><small>Сохраняются в этом браузере</small></div><span class="status-pill good">Включены</span></div>
+          <div class="setting-row"><div><strong>Telegram API</strong><small>Подключение ещё не настроено</small></div><span class="status-pill">Не подключён</span></div>
+          <div class="setting-row"><div><strong>AI-провайдеры</strong><small>Ключи не запрашиваются в этой версии</small></div><span class="status-pill">Не настроены</span></div>
+        </div>
+        <p class="settings-foot">TG-K — независимый экспериментальный клиент, не официальный продукт Telegram.</p>
+      </section>
+    </main>
+    <nav class="tabbar" aria-label="Основная навигация">
+      <button class="tab active" data-screen="chatsScreen"><span>▤</span><small>Чаты</small></button>
+      <button class="tab" data-screen="toolsScreen"><span>✧</span><small>Инструменты</small></button>
+      <button class="tab" id="tabSettings"><span>⚙</span><small>Настройки</small></button>
+    </nav>
+  </div>
+  <dialog id="toolDialog" class="tool-dialog"><div class="dialog-head"><strong id="dialogTitle">Инструмент</strong><button id="dialogClose" class="icon-button">✕</button></div><div id="dialogContent"></div></dialog>
+  <script src="./app.js" defer></script>
+</body>
+</html>

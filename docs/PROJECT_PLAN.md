@@ -32,4 +32,4 @@ TG-K is an iPhone-first Telegram Web client prototype delivered as an installabl
 7. Test on iPhone Safari, standalone PWA mode, and supported iOS versions.
 
 ## Current status
-Planning only. This repository does not yet contain the Telegram client implementation.
+PWA foundation created on branch codex/tg-k-pwa-foundation. Telegram account integration is the next milestone.
