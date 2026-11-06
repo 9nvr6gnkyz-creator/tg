@@ -26,3 +26,7 @@ The upstream candidate is [Telegram Web Z](https://github.com/TelegramOrg/Telegr
 Do not commit `.env`, Telegram session data, login codes, 2FA credentials, or AI provider keys. API ID/hash are application credentials, not a user session. Review GPL obligations and all upstream notices before distributing a modified build.
 
 See [project plan](docs/PROJECT_PLAN.md) and [implementation status](docs/IMPLEMENTATION_STATUS.md).
+
+## Publish with GitHub Pages
+
+A workflow in `.github/workflows/deploy.yml` deploys the site when changes reach `main`. In the repository settings, open **Pages** and set the build and deployment source to **GitHub Actions**. After the first successful workflow run, open the Pages URL on iPhone Safari and use Share → Add to Home Screen.
