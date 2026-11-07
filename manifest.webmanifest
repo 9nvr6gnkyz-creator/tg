@@ -1,0 +1,12 @@
+{
+  "name": "TG-K — Telegram Web client",
+  "short_name": "TG-K",
+  "description": "Экспериментальный Telegram Web клиент для iPhone",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6fa",
+  "theme_color": "#f4f6fa",
+  "orientation": "portrait",
+  "icons": [{"src":"./icons/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
